@@ -53,8 +53,8 @@
         
         <div class="btn-group">
             <div class="right-align">
-                <a href="/board/modify/${boardVO.id}">수정</a>
-                <a href="/board/delete/${boardVO.id}">삭제</a>
+                <a href="/board/modify-syj/${boardVO.id}">수정</a>
+                <a href="/board/delete-syj/${boardVO.id}">삭제</a>
             </div>
         </div>
     </div>

@@ -18,7 +18,7 @@ public class BoardController {
 	@Autowired
 	private BoardService boardService;
 
-	@GetMapping("/board/list")
+	@GetMapping("/board/list-syj")
 	public ModelAndView viewBoardList() {
 		BoardListVO boardListVO = boardService.getAllBoard();
 
@@ -28,12 +28,12 @@ public class BoardController {
 		return modelAndView;
 	}
 	
-	@GetMapping("/board/write")
+	@GetMapping("/board/write-syj")
 	public String viewBoardWritePage() {
 	return "board/boardwrite";
 	}
 	
-	@PostMapping("/board/write")
+	@PostMapping("/board/write-syj")
 	public ModelAndView doBoardWrite(@ModelAttribute BoardVO boardVO) {
 		System.out.println("제목: " + boardVO.getSubject());
 		System.out.println("이메일: " + boardVO.getEmail());
@@ -48,7 +48,7 @@ public class BoardController {
 		boolean isSuccess = boardService.createNewBoard(boardVO);
 		if (isSuccess) {
 
-			modelAndView.setViewName("redirect:/board/list");
+			modelAndView.setViewName("redirect:/board/list-syj");
 			return modelAndView;
 		}
 		else {
@@ -60,7 +60,7 @@ public class BoardController {
 
 	}
 	
-	@GetMapping("/board/view") 
+	@GetMapping("/board/view-syj") 
 	public ModelAndView viewOneBoard(@RequestParam int id) {
 		BoardVO boardVO = boardService.getOneBoard(id, true);
 
@@ -70,7 +70,7 @@ public class BoardController {
 		return modelAndView;
 		}
 	
-	@GetMapping("/board/modify/{id}") 
+	@GetMapping("/board/modify-syj/{id}") 
 	public ModelAndView viewBoardModifyPage(@PathVariable int id) {
 
 
@@ -82,7 +82,7 @@ public class BoardController {
 		return modelAndView;
 	}
 
-	@PostMapping("/board/modify")
+	@PostMapping("/board/modify-syj")
 	public ModelAndView doBoardUpdate(@ModelAttribute BoardVO boardVO) {
 
 		System.out.println("ID: " + boardVO.getId());
@@ -99,7 +99,7 @@ public class BoardController {
 		boolean isSuccess = boardService.updateOneBoard(boardVO);
 		if (isSuccess) {
 
-			modelAndView.setViewName("redirect:/board/view?id=" + boardVO.getId());
+			modelAndView.setViewName("redirect:/board/view-syj?id=" + boardVO.getId());
 			return modelAndView;
 		}
 		else {
@@ -110,14 +110,14 @@ public class BoardController {
 		}
 	}
 	
-	@GetMapping("/board/delete/{id}")
+	@GetMapping("/board/delete-syj/{id}")
 	public String doDeleteBoard(@PathVariable int id) {
 		boolean isSuccess = boardService.deleteOneBoard(id);
 		if (isSuccess) {
-			return "redirect:/board/list";
+			return "redirect:/board/list-syj";
 		}
 		else {
-			return "redirect:/board/view?id=" + id;
+			return "redirect:/board/view-syj?id=" + id;
 		}
 	}
 

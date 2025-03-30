@@ -7,7 +7,7 @@
 <title>Insert title here</title>
 </head>
 <body>
-게시글 수: ${boardList.getBoardCnt()}<br/>
+게시글 수: ${boardList.getBoardCnt()}<br/>
 조회한 게시글의 수: ${boardList.getBoardList().size()}
-</body>
+</body>
 </html>
