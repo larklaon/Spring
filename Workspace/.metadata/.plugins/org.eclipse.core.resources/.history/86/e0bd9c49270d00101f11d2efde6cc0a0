@@ -1,0 +1,23 @@
+package com.ktdsuniversity.edu.syj.bbs.dao;
+
+import java.util.List;
+
+import org.mybatis.spring.SqlSessionTemplate;
+import org.mybatis.spring.support.SqlSessionDaoSupport;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Repository;
+
+import com.ktdsuniversity.edu.syj.bbs.vo.BoardVO;
+
+@Repository
+public class BoardDaoImpl extends SqlSessionDaoSupport implements BoardDao {
+	@Override
+	public int getBoardAllCount() {
+		return 0;
+	}
+	
+	@Override
+	public List<BoardVO> getAllBoard() {
+		return null;
+	}
+}

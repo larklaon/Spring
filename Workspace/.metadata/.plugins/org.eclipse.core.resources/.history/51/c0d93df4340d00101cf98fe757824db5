@@ -1,0 +1,11 @@
+package com.ktdsuniversity.edu.syj.bbs.service;
+
+import com.ktdsuniversity.edu.syj.bbs.vo.BoardListVO;
+
+public interface BoardService {
+
+	public BoardListVO getAllBoard();
+	
+	public boolean createNewBoard(BoardVO boardVO);
+
+}

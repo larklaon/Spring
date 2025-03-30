@@ -1,0 +1,36 @@
+package com.ktdsuniversity.edu.syj.bbs.service;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+import com.ktdsuniversity.edu.syj.bbs.dao.BoardDao;
+import com.ktdsuniversity.edu.syj.bbs.vo.BoardListVO;
+import com.ktdsuniversity.edu.syj.bbs.vo.BoardVO;
+
+@Service
+public class BoardServiceImpl implements BoardService {
+
+	@Autowired
+	private BoardDao boardDao;
+
+	@Override
+	public BoardListVO getAllBoard() {
+
+		BoardListVO boardListVO = new BoardListVO();
+
+		boardListVO.setBoardCnt(boardDao.getBoardAllCount());
+
+		boardListVO.setBoardList(boardDao.getAllBoard());
+		return boardListVO;
+	}
+	
+	@Override
+	public boolean createNewBoard(BoardVO boardVO) {
+
+		int createCount = boardDao.createNewBoard(boardVO);
+
+		return createCount > 0;
+	}
+
+
+}

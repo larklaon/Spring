@@ -1,0 +1,5 @@
+package com.ktdsuniversity.edu.syj.dao;
+
+public interface BbsDao {
+
+}

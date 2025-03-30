@@ -1,0 +1,5 @@
+package com.ktdsuniversity.edu.syj.bbs.vo;
+
+public class BoardListVO {
+
+}

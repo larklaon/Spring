@@ -1,0 +1,19 @@
+package com.ktdsuniversity.edu.syj.bbs.service;
+
+@Service
+public class BoardServiceImpl implements BoardService {
+
+	@Autowired
+	private BoardDao boardDao;
+
+	@Override
+	public BoardListVO getAllBoard() {
+
+		BoardListVO boardListVO = new BoardListVO();
+
+		boardListVO.setBoardCnt(boardDao.getBoardAllCount());
+
+		boardListVO.setBoardList(boardDao.getAllBoard());
+		return boardListVO;
+	}
+}
